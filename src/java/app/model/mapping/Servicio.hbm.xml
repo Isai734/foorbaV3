@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 4, 2018 8:41:09 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="foorba" name="app.model.Servicio" optimistic-lock="version" table="servicio">
+    <id name="idServicio" type="java.lang.Integer">
+      <column name="id_servicio"/>
+      <generator class="identity"/>
+    </id>
+    <property name="agua" type="string">
+      <column length="1" name="agua"/>
+    </property>
+    <property name="telefono" type="string">
+      <column length="1" name="telefono"/>
+    </property>
+    <property name="luz" type="string">
+      <column length="1" name="luz"/>
+    </property>
+    <property name="gas" type="string">
+      <column length="1" name="gas"/>
+    </property>
+    <property name="internet" type="string">
+      <column length="1" name="internet"/>
+    </property>
+    <property name="cable" type="string">
+      <column length="1" name="cable"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="viviendas" table="vivienda">
+      <key>
+        <column name="id_servicios"/>
+      </key>
+      <one-to-many class="app.model.Vivienda"/>
+    </set>
+  </class>
+</hibernate-mapping>

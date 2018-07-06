@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 4, 2018 8:41:09 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="foorba" name="app.model.UserRole" optimistic-lock="version" table="user_role">
+    <id name="userRoleId" type="java.lang.Integer">
+      <column name="user_role_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="app.model.User" fetch="select" name="user">
+      <column length="50" name="email" not-null="true"/>
+    </many-to-one>
+    <property name="role" type="string">
+      <column length="45" name="role"/>
+    </property>
+  </class>
+</hibernate-mapping>

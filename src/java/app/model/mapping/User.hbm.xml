@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 4, 2018 8:41:09 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="foorba" name="app.model.User" optimistic-lock="version" table="user">
+    <id name="email" type="string">
+      <column length="50" name="email"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="password" type="string">
+      <column name="password" not-null="true"/>
+    </property>
+    <property name="enable" type="string">
+      <column length="1" name="enable"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="userRoles" table="user_role">
+      <key>
+        <column length="50" name="email" not-null="true"/>
+      </key>
+      <one-to-many class="app.model.UserRole"/>
+    </set>
+  </class>
+</hibernate-mapping>

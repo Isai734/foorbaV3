@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 4, 2018 8:41:09 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="foorba" name="app.model.Persona" optimistic-lock="version" table="persona">
+    <id name="idPersona" type="java.lang.Integer">
+      <column name="id_persona"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="app.model.Escuela" fetch="select" name="escuela">
+      <column name="id_escuela"/>
+    </many-to-one>
+    <many-to-one class="app.model.Grupo" fetch="select" name="grupo">
+      <column name="id_grupo"/>
+    </many-to-one>
+    <many-to-one class="app.model.Iglesia" fetch="select" name="iglesia">
+      <column name="id_iglesia"/>
+    </many-to-one>
+    <many-to-one class="app.model.Persona" fetch="select" name="persona">
+      <column name="id_padre"/>
+    </many-to-one>
+    <many-to-one class="app.model.Vivienda" fetch="select" name="vivienda">
+      <column name="id_vivienda"/>
+    </many-to-one>
+    <property name="nombre" type="string">
+      <column length="45" name="nombre" not-null="true"/>
+    </property>
+    <property name="APaterno" type="string">
+      <column length="45" name="a_paterno" not-null="true"/>
+    </property>
+    <property name="AMaterno" type="string">
+      <column length="45" name="a_materno" not-null="true"/>
+    </property>
+    <property name="fechaNacimiento" type="string">
+      <column length="10" name="fecha_nacimiento" not-null="true"/>
+    </property>
+    <property name="telefono" type="string">
+      <column length="12" name="telefono"/>
+    </property>
+    <property name="estadoCivil" type="string">
+      <column length="20" name="estado_civil" not-null="true"/>
+    </property>
+    <property name="ocupacion" type="string">
+      <column length="45" name="ocupacion"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="personas" table="persona">
+      <key>
+        <column name="id_padre"/>
+      </key>
+      <one-to-many class="app.model.Persona"/>
+    </set>
+  </class>
+</hibernate-mapping>

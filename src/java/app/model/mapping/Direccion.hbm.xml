@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 4, 2018 8:41:09 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="foorba" name="app.model.Direccion" optimistic-lock="version" table="direccion">
+    <id name="idDireccion" type="java.lang.Integer">
+      <column name="id_direccion"/>
+      <generator class="identity"/>
+    </id>
+    <property name="pais" type="string">
+      <column length="50" name="pais" not-null="true"/>
+    </property>
+    <property name="estado" type="string">
+      <column length="60" name="estado"/>
+    </property>
+    <property name="ciudad" type="string">
+      <column length="60" name="ciudad"/>
+    </property>
+    <property name="calonia" type="string">
+      <column length="120" name="calonia"/>
+    </property>
+    <property name="calle" type="string">
+      <column length="150" name="calle"/>
+    </property>
+    <property name="numero" type="java.lang.Integer">
+      <column name="numero"/>
+    </property>
+    <property name="codigoPostal" type="java.lang.Integer">
+      <column name="codigo_postal"/>
+    </property>
+    <property name="tipo" type="string">
+      <column length="20" name="tipo"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="iglesias" table="iglesia">
+      <key>
+        <column name="direccion"/>
+      </key>
+      <one-to-many class="app.model.Iglesia"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="viviendas" table="vivienda">
+      <key>
+        <column name="id_direccion"/>
+      </key>
+      <one-to-many class="app.model.Vivienda"/>
+    </set>
+  </class>
+</hibernate-mapping>

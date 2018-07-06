@@ -1,0 +1,17 @@
+/*
+    Formulario Custom
+ */
+.homepage #form {
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 2em;
+}
+
+.homepage #form-parent {
+    width: 70%;
+}
+
+hr.ver {
+    position:absolute;
+    border:1px solid #6d3353;
+}

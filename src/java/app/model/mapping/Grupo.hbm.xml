@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jul 4, 2018 8:41:09 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="foorba" name="app.model.Grupo" optimistic-lock="version" table="grupo">
+    <id name="idGrupo" type="java.lang.Integer">
+      <column name="id_grupo"/>
+      <generator class="identity"/>
+    </id>
+    <property name="nombre" type="string">
+      <column length="20" name="nombre"/>
+    </property>
+    <property name="encargado" type="string">
+      <column length="60" name="encargado"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="personas" table="persona">
+      <key>
+        <column name="id_grupo"/>
+      </key>
+      <one-to-many class="app.model.Persona"/>
+    </set>
+  </class>
+</hibernate-mapping>
