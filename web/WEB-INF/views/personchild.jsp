@@ -9,7 +9,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <jsp:include page="header.jsp" />
-
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,24 +19,21 @@
             }
         </style>
     </head>
-    <body class="homepage">
+    <body class="homepage"> 
         <div id="header">
-
             <div id="logo">
                 <img class="logoimg" src="<c:url value="/resources/images/logoimcye.png"/>">
                 <a>Fooorba</a>
             </div>
         </div>
         <div id="main">
-            <div id="content" class="container">
-
-                <ul class="nav nav-tabs" id="tabs">
+            <div id="content" class="page-header">
+                <ul class="nav nav-tabs nav-justified" id="tabs">
                     <li class="active"><a data-toggle="tab" href="#home">Datos Personales</a></li>
                     <li><a data-toggle="tab" href="#menu1">Familiares</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Escolaridad</a></li>
                     <li><a data-toggle="tab" href="#menu3">Vivienda</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Escolaridad</a></li>
                 </ul>
-
             </div>
         </div>
         <!--TABS Contents -->
@@ -55,8 +51,7 @@
                                 </div>
                             </div>
                             <!-- **************FORMULARIO*************** -->
-                            <form action="#" method="POST" onsubmit="return validar();"
-                                  autocomplete="off">
+                            <form action="#" method="POST" onsubmit="return validar();" autocomplete="off">
 
                                 <!--Nombre del cliente-->
                                 <div class="form-group">
@@ -64,14 +59,13 @@
                                     <input placeholder="Nombre" type="text" class="form-control" id="nombre" name="nombre"
                                            required>
                                 </div>
-                                <!-- Apellido paterno del cliente-->
 
+                                <!-- Apellido paterno del cliente-->
                                 <div class="form-group">
                                     <label class="control-label">Primer Apellido</label>
-
-                                    <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno"
-                                           required>
+                                    <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno" required>
                                 </div>
+
                                 <!-- Apellido Materno del cliente -->
                                 <div class="form-group">
                                     <label class="control-label">Segundo Apellido</label>
@@ -80,7 +74,6 @@
                                 </div>
 
                                 <!-- Fecha de Nacimiento -->
-
                                 <div class="form-group">
                                     <label class="control-label">Fecha de Nacimeinto</label>
                                     <input type="date" class="form-control" id="apellido_paterno" name="apellido_materno"
@@ -88,17 +81,29 @@
                                 </div>
 
                                 <!-- Ocupacion -->
-
                                 <div class="form-group">
                                     <label class="control-label">Ocupación:</label>
-                                    <select class="form-control" id="apellido_paterno"
-                                            name="apellido_materno"
+                                    <select class="form-control" name="ocupacion_select"
                                             required>
                                         <option value="empty"></option>
                                         <option value="estudent">Estudiante</option>
                                         <option value="employe">Empleado</option>
                                         <option value="other">Otro</option>
                                     </select>
+                                </div>
+
+                                <div id="school" class="row" hidden>
+                                    <div class="column-sm-4">
+                                        <label class="control-label">Agregue la escuela del alumno</label>
+                                    </div>
+                                    <div class="column-sm-4">
+                                        <input class="form-control" type="button" value="Agregar Escuela"/>         
+                                    </div>
+                                </div>
+
+                                <!-- Apellido paterno del cliente-->
+                                <div id="otra_ocupacion" class="form-group" hidden>
+                                    <input type="text" class="form-control" placeholder="Especifique otra ocupación" id="apellido_paterno" name="apellido_paterno" required>
                                 </div>
 
                                 <!-- Teléfono del cliente -->
@@ -112,7 +117,6 @@
                                 </div>
 
                                 <!-- Estado civil -->
-
                                 <div class="form-group">
                                     <label class="control-label">Estado Civil:</label>
                                     <select class="form-control" id="apellido_paterno"
@@ -125,67 +129,40 @@
                                         <option value="other">Viudo(a)</option>
                                     </select>
                                 </div>
-
-
                             </form>
                         </div>
-
-
                     </div>
 
                     <!--Datos de Tutor-->
                     <div id="menu1" class="tab-pane fade">
+                        <div id="form" >
 
-                        <!--Header-->
-                        <div id="content-f" class="container">
+                            <ul class="nav nav-tabs nav-justified" id="tabs">
+                                <li class="active"><a data-toggle="tab" href="#father"> Datos del Padre</a></li>
+                                <li><a data-toggle="tab" href="#mother"> Datos de la Madre</a></li>
+                            </ul>
+                            <div class="tab-content">
 
-                        </div>
-
-                        <ul class="nav nav-tabs" id="tabs">
-                            <li class="active"><a data-toggle="tab" href="#father">Padre</a></li>
-                            <li><a data-toggle="tab" href="#mother">Madre</a></li>
-                        </ul>
-                        <div id="father" class="tab-pane fade">
-                            <!--Formulario-->
-                            <form action="#">
-                                <div id="content">
-                                    <div class="row">
-                                        <section class="6u">
-                                            <div class="page-header" style="font-size: 25pt; color: #00796B">
-                                                <span class="glyphicon glyphicon-user"></span> Padre
-                                            </div>
-                                        </section>
-                                       
-                                    </div>
-                                    <!--Nombre-->
-                                    <div class="row">
-                                        <div class="col-md-6">
+                                <div id="father" class="tab-pane fade in active">
+                                    <!--Formulario-->
+                                    <form action="#">
+                                        <!--Nombre-->
+                                        <div class="form-group">
                                             <div class="form-group">
                                                 <label class="control-label">Nombre</label>
                                                 <input type="text" class="form-control" id="nombre" name="nombre" required>
                                             </div>
                                         </div>
-
-
-                                    </div>
-
-                                    <!-- Apellido paterno-->
-                                    <div class="row">
-
-                                        <div class="col-md-6">
+                                        <!-- Apellido paterno-->
+                                        <div class="form-group">
                                             <div class="form-group">
                                                 <label class="control-label">Primer Apellido</label>
-                                                <input type="text" class="form-control" id="apellido_paterno"
-                                                       name="apellido_paterno"
-                                                       required>
+                                                <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno" required>
                                             </div>
                                         </div>
-                                       
-                                    </div>
 
-                                    <!-- Apellido Materno -->
-                                    <div class="row">
-                                        <div class="col-sm-6">
+                                        <!-- Apellido Materno -->
+                                        <div class="form-group">
 
                                             <div class="form-group">
                                                 <label class="control-label">Segundo Apellido:</label>
@@ -195,13 +172,8 @@
                                             </div>
                                         </div>
 
-                                       
-                                    </div>
-
-                                    <!-- Teléfono -->
-                                    <div class="row">
-                                        <div class="col-sm-6">
-
+                                        <!-- Teléfono -->
+                                        <div class="form-group">
                                             <div class="form-group">
                                                 <label class="control-label">Teléfono:</label>
                                                 <input type="phone" class="form-control" id="telefono" name="telefono" required>
@@ -210,23 +182,79 @@
                                                 </div>
                                             </div>
                                         </div>
-                                       
-                                    </div>
 
-                                    <div class="row">
-                                        <!-- Dirección del cliente -->
-                                        <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <!-- Dirección del cliente -->
                                             <div class="form-group">
                                                 <label class="control-label">Dirección:</label>
                                                 <input type="text" class="form-control" id="direccion" name="direccion" required>
                                             </div>
                                         </div>
-                                        
-                                    </div>
 
-                                    <!-- Ocupacion -->
-                                    <div class="row">
-                                        <div class="col-sm-6">
+                                        <!-- Ocupacion -->
+                                        <div class="form-group">
+                                            <div class="form-group-sm">
+                                                <label class="control-label">Ocupación:</label>
+                                                <select class="form-control" id="apellido_paterno" name="apellido_materno" required>
+                                                    <option value="empty"></option>
+                                                    <option value="Profesional">Profesionista</option>
+                                                    <option value="employe">Oficio</option>
+                                                    <option value="other">Otro</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                                <div id="mother" class="tab-pane fade">
+                                    <!--Formulario para datos de la madre-->
+                                    <form action="#">
+                                        <!--Nombre-->
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre</label>
+                                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                                            </div>
+                                        </div>
+                                        <!-- Apellido paterno-->
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label class="control-label">Primer Apellido</label>
+                                                <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Apellido Materno -->
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label class="control-label">Segundo Apellido:</label>
+                                                <input type="text" class="form-control" id="apellido_paterno" name="apellido_materno" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Teléfono -->
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label class="control-label">Teléfono:</label>
+                                                <input type="phone" class="form-control" id="telefono" name="telefono" required>
+                                                <div class="alert alert-info">
+                                                    <strong>Info!</strong> Telefono sin parentesis ni guiones medios!.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <!-- Dirección del cliente -->
+                                            <div class="form-group">
+                                                <label class="control-label">Dirección:</label>
+                                                <input type="text" class="form-control" id="direccion" name="direccion" required>
+                                            </div>
+                                        </div>
+
+                                        <!-- Ocupacion -->
+                                        <div class="form-group">
                                             <div class="form-group-sm">
                                                 <label class="control-label">Ocupación:</label>
                                                 <select class="form-control" id="apellido_paterno" name="apellido_materno" required>
@@ -237,55 +265,96 @@
                                                 </select>
                                             </div>
                                         </div>
-                                       
-                                    </div>
+                                    </form>
                                 </div>
-                            </form>
-
+                            </div>
                         </div>
                     </div>
 
-                    <!--Vivienda-->
+                    <!--Escolaridad-->
                     <div id="menu2" class="tab-pane fade">
+                        <form  id="form" class="form-horizontal">
+                             <div class="form-group">
+                                <label for="ejemplo_password_1">Escuela</label>
+                                <input type="text" class="form-control" id="ejemplo_password_1" placeholder="Nombre de la Escuela">
+                            </div>
+                            
+                             <div class="form-group">
+                                <label for="ejemplo_password_1">Dirección</label>
+                                <input type="text" class="form-control" id="ejemplo_password_1" placeholder="Dirección">
+                            </div>
 
-                        <form class="form-horizontal">
-
-                            <label for="ejemplo_email_1">Email</label>
-                            <div class="form-group">
-                                <div class="col-sm-6">
-                                    <input class="form-control" type="email" id="ejemplo_email_1"
-                                           placeholder="Introduce tu email">
+                           <!-- Estado civil -->
+                                <div class="form-group">
+                                    <label class="control-label">Nivel de estudio:</label>
+                                    <select class="form-control" id="apellido_paterno" required>
+                                        <option value="empty">Seleccione una opcción</option>
+                                        <option value="single">Primaria</option>
+                                        <option value="maried">Secundaria</option>
+                                        <option value="other">Bachillerato</option>
+                                        <option value="other">Licenciatura</option>
+                                    </select>
                                 </div>
-
+                            <div class="form-group">
+                                <label for="ejemplo_password_1">Grado</label>
+                                <input type="text" class="form-control" id="ejemplo_password_1" placeholder="Grado">
                             </div>
                             <div class="form-group">
-                                <label for="ejemplo_password_1">Contraseña</label>
-                                <input type="password" class="form-control" id="ejemplo_password_1"
-                                       placeholder="Contraseña">
+                                <label for="ejemplo_archivo_1">Grupo</label>
+                                <input type="text" class="form-control" id="ejemplo_password_1" placeholder="Grupo">
+                               
                             </div>
-                            <div class="form-group">
-                                <label for="ejemplo_archivo_1">Adjuntar un archivo</label>
-                                <input type="file" id="ejemplo_archivo_1">
-                                <p class="help-block">Ejemplo de texto de ayuda.</p>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> Activa esta casilla
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-default">Enviar</button>
                         </form>
                     </div>
 
-                    <!--Escolar-->
+                    <!--Vvienda-->
                     <div id="menu3" class="tab-pane fade">
-                        <h3>Menu 2</h3>
-                        <p>Some content in menu 2.</p>
-                    </div>
+                        <div id="form">
 
+                            <div id="school" class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <p>El niño vive con :</p>            
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr><td>Padre</td><td><input class="checkbox" type="checkbox"></td></tr>
+                                                <tr><td>Madre</td><td><input class="checkbox" type="checkbox"></td></tr>
+                                                <tr><td>Abuelos</td><td><input class="checkbox" type="checkbox"></td></tr>
+                                                <tr><td>Tios</td><td><input class="checkbox" type="checkbox"></td></tr>
+                                                <tr><td>Primos</td><td><input class="checkbox" type="checkbox"></td></tr>
+                                                <tr><td>Otros</td><td><input class="checkbox" type="checkbox"></td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <p>Servicios de la vivienda :</p>            
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr><td>Agua</td><td><input class="checkbox" type="checkbox"></td></tr>
+                                                <tr><td>Telefono</td><td><input class="checkbox" type="checkbox"></td></tr>
+                                                <tr><td>Luz</td><td><input class="checkbox" type="checkbox"></td></tr>
+                                                <tr><td>Gas</td><td><input class="checkbox" type="checkbox"></td></tr>
+                                                <tr><td>Internet</td><td><input class="checkbox" type="checkbox"></td></tr>
+                                                <tr><td>Cable</td><td><input class="checkbox" type="checkbox"></td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="school" class="row">
+                                <div class="col-sm-6">
+                                    <label class="control-label">Total de miebros en la casa</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input class="form-control" type="number"/>         
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- Botónnes para registrar y cancelar -->
-
             </div>
             <div id="form">
                 <div class="row">
@@ -319,6 +388,22 @@
                 </section>
             </div>
         </div>
-
     </body>
 </html>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector('select[name="ocupacion_select"]').onchange = changeEventHandler;
+    }, false);
+
+    function changeEventHandler(event) {
+        // You can use “this” to refer to the selected element.
+        if (event.target.value === "estudent") {
+            document.getElementById('school').hidden = false;
+        } else
+            document.getElementById('school').hidden = true;
+        if (event.target.value === "other") {
+            document.getElementById('otra_ocupacion').hidden = false;
+        } else
+            document.getElementById('otra_ocupacion').hidden = true;
+    }
+</script>
